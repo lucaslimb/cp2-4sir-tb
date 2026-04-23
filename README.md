@@ -1,30 +1,30 @@
-# MP Doom — Doom (1993) com MediaPipe para controles imersivos
+# MP Doom — Doom (1993) with MediaPipe for immersive controls
 
-Mapeia gestos de mão e pose (MediaPipe) para controles do Doom clássico com a biblioteca ViZDoom e WAD Fredoom. Permite controlar movimento, mira e disparo usando gestos.
+MP Doom maps hand and body gestures (via MediaPipe) to controls for the classic Doom engine using ViZDoom and the Fredoom WAD. You can move, aim, and shoot using gestures captured from a webcam.
 
-[Vídeo do projeto](https://youtu.be/Pw6oNyOBjBM)
+### [Project video](https://youtu.be/Pw6oNyOBjBM)
 
 ![Screenshot](assets/screenshot.png)
 
-## Grupo TB — Checkpoint 2 — Cognitive Computing & Computer Vision
+## Overview
 
-Ana, Felipe, Isabella, Lucas e Martin
+This project demonstrates gesture-based control for Doom using MediaPipe models and ViZDoom. It is intended as a research/learning prototype and it's still in development.
 
-## Pré-requisitos
+## Requirements
 
-- OS Windows
+- Windows
 - Python 3.11+
 - pip
 
-## Instalação
+## Installation
 
-1. Clone o repositório:
+1. Clone the repository:
 
 ```bash
-git clone https://github.com/classarnaldojr/cp2-4sir-tb.git
+git clone https://github.com/lucaslimb/mpdoom.git
 ```
 
-2. Crie e ative o ambiente virtual:
+2. Create and activate a virtual environment:
 
 ```bash
 python -m venv venv
@@ -34,30 +34,35 @@ python -m venv venv
 .\venv\Scripts\Activate.bat
 ```
 
-3. Instale as dependências:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Como jogar
+## How to run
 
-Inicie o jogo:
+Start the project:
 
 ```bash
 python mpdoom.py
 ```
 
-- Pressione `SPACE` para exibir/esconder tracking
-- Pressione `ESC` para sair
+- Press `SPACE` to show/hide tracking overlays
+- Press `ESC` to exit
 
-## Comandos de gesto
+## Gesture controls
 
-Gestos são imersivos e combinados com fluidez!
+The system maps simple hand and pose gestures to in-game actions. Below is a quick reference based on the implementation:
 
-| Gesto | Ação no jogo | Definição (resumida, baseada no código) |
+| Gesture | In-game action | Notes |
 |---|---:|---|
-| Antebraço direito estendido | Andar pra frente | Index TIP distante (vertical) do ombro |
-| Braço direito retraído | Parar | Index TIP próximo (vertical) do ombro |
-| Antebraço direito lateral (movimento) | Mirar / mover câmera | Pulso movimentando (horizontal) |
-| Dedo indicador: estende → retraído | Atirar | Comparação de posições (horizontal/vertical) de 4 pontos do Index (TIP/DIP/PIP/MCP) |
+| Right forearm extended | Move forward | Index fingertip vertically distant from the shoulder |
+| Right arm retracted | Stop | Index fingertip near the shoulder vertically |
+| Right forearm lateral movement | Aim / move camera | Wrist horizontal movement controls camera yaw |
+| Index finger extend → retract | Shoot | Relative positions of Index TIP/DIP/PIP/MCP used to detect trigger |
+
+## Stack
+- Python 3.11
+- MediaPipe + OpenCV
+- VizDoom 1.3.0
